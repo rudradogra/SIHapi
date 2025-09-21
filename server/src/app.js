@@ -8,11 +8,15 @@ const path = require('path');
 const Database = require('./models/database');
 const FHIRCodeSystemService = require('./services/fhirCodeSystemService');
 const FHIRConceptMapService = require('./services/fhirConceptMapService');
+const ICD11Service = require('./services/icd11Service');
+const SimilarityMatcher = require('./services/similarityMatcher');
 
 // Import routes
 const terminologyRoutes = require('./routes/terminology');
 const fhirRoutes = require('./routes/fhir');
 const adminRoutes = require('./routes/admin');
+const icd11Routes = require('./routes/icd11');
+const mappingRoutes = require('./routes/mappings');
 
 // Import middleware
 const { authMiddleware } = require('./middleware/auth');
@@ -26,6 +30,8 @@ class AyushTerminologyServer {
     this.db = null;
     this.codeSystemService = null;
     this.conceptMapService = null;
+    this.icd11Service = null;
+    this.similarityMatcher = null;
   }
 
   async initialize() {
@@ -38,6 +44,8 @@ class AyushTerminologyServer {
       // Initialize services
       this.codeSystemService = new FHIRCodeSystemService(this.db);
       this.conceptMapService = new FHIRConceptMapService(this.db);
+      this.icd11Service = new ICD11Service(this.db);
+      this.similarityMatcher = new SimilarityMatcher(this.db);
 
       // Setup middleware
       this.setupMiddleware();
@@ -124,6 +132,13 @@ class AyushTerminologyServer {
             'POST /fhir/CodeSystem/$lookup - Lookup code',
             'POST /fhir/ConceptMap/$translate - Translate code',
             'POST /fhir/Bundle - Upload Bundle',
+            'GET /api/icd11/codes - Get ICD-11 codes',
+            'GET /api/icd11/search - Search ICD-11 codes from WHO API',
+            'POST /api/icd11/sync - Sync ICD-11 codes from WHO API',
+            'GET /api/mappings - Get stored mappings',
+            'POST /api/mappings/generate - Generate new mappings',
+            'GET /api/mappings/stats - Get mapping statistics',
+            'POST /api/mappings/find-similar - Find similar codes',
             'POST /admin/csv/import - Import NAMASTE CSV',
             'GET /admin/stats - Get statistics'
           ]
@@ -132,9 +147,21 @@ class AyushTerminologyServer {
       });
     });
 
+    // Add services to request object for route access
+    this.app.use((req, res, next) => {
+      req.db = this.db;
+      req.codeSystemService = this.codeSystemService;
+      req.conceptMapService = this.conceptMapService;
+      req.icd11Service = this.icd11Service;
+      req.similarityMatcher = this.similarityMatcher;
+      next();
+    });
+
     // Mount route modules
     this.app.use('/fhir', fhirRoutes);
     this.app.use('/admin', authMiddleware, adminRoutes);
+    this.app.use('/api/icd11', icd11Routes);
+    this.app.use('/api/mappings', mappingRoutes);
     
     // Legacy API routes for backward compatibility
     this.app.use('/api/terminology', terminologyRoutes);

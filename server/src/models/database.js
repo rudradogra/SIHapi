@@ -64,6 +64,8 @@ class Database {
         equivalence TEXT DEFAULT 'equivalent',
         confidence REAL DEFAULT 1.0,
         mapping_type TEXT DEFAULT 'manual',
+        similarity_score REAL DEFAULT 0.0,
+        mapping_details TEXT,
         created_by TEXT,
         created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
         FOREIGN KEY (namaste_code) REFERENCES namaste_codes(code),
