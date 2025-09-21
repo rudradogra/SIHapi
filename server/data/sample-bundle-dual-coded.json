@@ -1,0 +1,362 @@
+{
+  "resourceType": "Bundle",
+  "id": "ayush-dual-coded-conditions-example",
+  "type": "collection",
+  "timestamp": "2025-09-21T10:30:00.000Z",
+  "entry": [
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-ayush-001",
+        "identifier": [
+          {
+            "system": "https://healthid.ndhm.gov.in",
+            "value": "12-3456-7890-1234"
+          }
+        ],
+        "name": [
+          {
+            "family": "Sharma",
+            "given": ["Raj", "Kumar"]
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1985-07-15",
+        "address": [
+          {
+            "line": ["123 Gandhi Nagar"],
+            "city": "New Delhi",
+            "state": "Delhi",
+            "postalCode": "110001",
+            "country": "IN"
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "practitioner-ayurveda-001",
+        "identifier": [
+          {
+            "system": "http://ayush.gov.in/practitioner-id",
+            "value": "AYU-PRAC-001"
+          }
+        ],
+        "name": [
+          {
+            "family": "Vaidya",
+            "given": ["Dr. Priya"]
+          }
+        ],
+        "qualification": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://ayush.gov.in/qualification",
+                  "code": "BAMS",
+                  "display": "Bachelor of Ayurvedic Medicine and Surgery"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-vata-imbalance-dual-coded",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active",
+              "display": "Active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed",
+              "display": "Confirmed"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "encounter-diagnosis",
+                "display": "Encounter Diagnosis"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://terminology.ayush.gov.in/CodeSystem/namaste",
+              "code": "AYU001",
+              "display": "Vata Dosha Imbalance",
+              "userSelected": true
+            },
+            {
+              "system": "http://id.who.int/icd/release/11/mms",
+              "code": "MG30.0Z",
+              "display": "Constitutional factors affecting health status"
+            }
+          ],
+          "text": "Vata Dosha Imbalance (Constitutional factors affecting health status)"
+        },
+        "subject": {
+          "reference": "Patient/patient-ayush-001"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-001"
+        },
+        "onsetDateTime": "2025-09-15T09:00:00.000Z",
+        "recordedDate": "2025-09-21T10:30:00.000Z",
+        "recorder": {
+          "reference": "Practitioner/practitioner-ayurveda-001"
+        },
+        "note": [
+          {
+            "text": "Patient presents with symptoms indicative of Vata dosha imbalance including anxiety, insomnia, and digestive irregularity. Dual-coded with ICD-11 for interoperability."
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-pitta-imbalance-dual-coded",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active",
+              "display": "Active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed",
+              "display": "Confirmed"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "encounter-diagnosis",
+                "display": "Encounter Diagnosis"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://terminology.ayush.gov.in/CodeSystem/namaste",
+              "code": "AYU002",
+              "display": "Pitta Dosha Imbalance",
+              "userSelected": true
+            },
+            {
+              "system": "http://id.who.int/icd/release/11/mms",
+              "code": "MG30.0Z",
+              "display": "Constitutional factors affecting health status"
+            }
+          ],
+          "text": "Pitta Dosha Imbalance (Constitutional factors affecting health status)"
+        },
+        "subject": {
+          "reference": "Patient/patient-ayush-001"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-001"
+        },
+        "onsetDateTime": "2025-09-10T14:00:00.000Z",
+        "recordedDate": "2025-09-21T10:30:00.000Z",
+        "recorder": {
+          "reference": "Practitioner/practitioner-ayurveda-001"
+        },
+        "note": [
+          {
+            "text": "Patient shows signs of excess Pitta including hyperacidity, skin inflammation, and irritability. Mapped to ICD-11 constitutional factors."
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-siddha-vayu-kutram",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active",
+              "display": "Active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed",
+              "display": "Confirmed"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "encounter-diagnosis",
+                "display": "Encounter Diagnosis"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://terminology.ayush.gov.in/CodeSystem/namaste",
+              "code": "SID001",
+              "display": "Vayu Kutram",
+              "userSelected": true
+            },
+            {
+              "system": "http://id.who.int/icd/release/11/mms",
+              "code": "MG30.0Z",
+              "display": "Constitutional factors affecting health status"
+            }
+          ],
+          "text": "Vayu Kutram (Air humor imbalance - Constitutional factors affecting health status)"
+        },
+        "subject": {
+          "reference": "Patient/patient-ayush-001"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-001"
+        },
+        "onsetDateTime": "2025-09-18T11:00:00.000Z",
+        "recordedDate": "2025-09-21T10:30:00.000Z",
+        "recorder": {
+          "reference": "Practitioner/practitioner-ayurveda-001"
+        },
+        "note": [
+          {
+            "text": "Siddha diagnosis of Vayu Kutram indicating air humor imbalance with respiratory and nervous system symptoms."
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "encounter-001",
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "AMB",
+          "display": "ambulatory"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://ayush.gov.in/encounter-type",
+                "code": "ayurveda-consultation",
+                "display": "Ayurveda Consultation"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/patient-ayush-001"
+        },
+        "participant": [
+          {
+            "individual": {
+              "reference": "Practitioner/practitioner-ayurveda-001"
+            }
+          }
+        ],
+        "period": {
+          "start": "2025-09-21T10:00:00.000Z",
+          "end": "2025-09-21T11:00:00.000Z"
+        },
+        "reasonCode": [
+          {
+            "text": "Routine AYUSH consultation for constitutional assessment and dosha balancing"
+          }
+        ],
+        "serviceProvider": {
+          "reference": "Organization/ayush-clinic-001"
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Organization",
+        "id": "ayush-clinic-001",
+        "identifier": [
+          {
+            "system": "http://ayush.gov.in/facility-id",
+            "value": "AYUSH-FAC-001"
+          }
+        ],
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "prov",
+                "display": "Healthcare Provider"
+              }
+            ]
+          }
+        ],
+        "name": "Integrated AYUSH Wellness Center",
+        "address": [
+          {
+            "line": ["456 Wellness Avenue"],
+            "city": "New Delhi",
+            "state": "Delhi",
+            "postalCode": "110002",
+            "country": "IN"
+          }
+        ],
+        "contact": [
+          {
+            "telecom": [
+              {
+                "system": "phone",
+                "value": "+91-11-1234-5678"
+              },
+              {
+                "system": "email",
+                "value": "info@ayushwellness.gov.in"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

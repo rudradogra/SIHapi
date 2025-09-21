@@ -1,0 +1,17 @@
+code,display,system,specialty,description
+AYU004,Ama (Toxins) Accumulation,Ayurveda,Gastroenterology,Accumulation of undigested food toxins in the body
+AYU005,Ojas Kshaya (Immunity Deficiency),Ayurveda,Immunology,Deficiency of vital essence leading to reduced immunity
+AYU006,Agni Mandya (Digestive Fire Weakness),Ayurveda,Gastroenterology,Weakness of digestive fire causing various digestive disorders
+AYU007,Vata Rakta (Gouty Arthritis),Ayurveda,Rheumatology,Joint inflammation due to Vata and Rakta dosha imbalance
+AYU008,Prameha (Diabetes Mellitus),Ayurveda,Endocrinology,Metabolic disorder characterized by excessive urination and sweetness in urine
+SID003,Iya Kutram,Siddha,General Medicine,Earth humor imbalance affecting body structure and stability
+SID004,Mega Noi (Digestive Disorders),Siddha,Gastroenterology,Various digestive system disorders in Siddha classification
+SID005,Kapha Noi (Respiratory Disorders),Siddha,Pulmonology,Respiratory system disorders related to phlegm and mucus
+SID006,Neer Kural Noi (Urinary Disorders),Siddha,Nephrology,Disorders of urinary system and fluid balance
+UNA003,Rutoobat Ghalba (Excess Moisture),Unani,General Medicine,Excessive moisture temperament causing various symptoms
+UNA004,Yaaboosat Ghalba (Excess Dryness),Unani,General Medicine,Excessive dryness temperament leading to dehydration symptoms
+UNA005,Soo-e-Mizaj Garm (Hot Intemperament),Unani,General Medicine,Hot temperament disorder with inflammatory symptoms
+UNA006,Soo-e-Mizaj Barid (Cold Intemperament),Unani,General Medicine,Cold temperament disorder with circulation problems
+UNA007,Zof-e-Jigar (Liver Weakness),Unani,Hepatology,Liver weakness according to Unani pathology
+AYU009,Kasa (Cough),Ayurveda,Pulmonology,Respiratory disorder with persistent cough
+AYU010,Swasa (Asthma),Ayurveda,Pulmonology,Breathing difficulty due to Vata and Kapha dosha imbalance
